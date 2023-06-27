@@ -1,0 +1,26 @@
+{%extends "user/layout.html"%}
+{% block header %}{%endblock%}
+
+{% block content %}
+    
+<div class="content" style="background-color: white;padding:3em">
+  {{trxdeets}}
+
+  <form action="/paystack" method="post">
+    <p>Please confirm amount and take note of your reference number</p>
+    <p class="text-danger">Amount:{{trxdeets.don_amt}} </p>
+    <p>Refernce No:{{trxdeets.don_refno}} </p>
+    
+   <button class="btn btn-success">Confirm payment</button>
+   <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+
+
+  </form>
+ </div>
+{%endblock%}
+
+{% block morecontent %}{% endblock morecontent%} 
+{% block featured %}{%endblock%}
+
+ 
